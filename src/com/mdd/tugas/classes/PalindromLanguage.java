@@ -2,8 +2,6 @@ package com.mdd.tugas.classes;
 
 public class PalindromLanguage {
 
-//    List<String> fw = List.of();
-
     private static  PalindromLanguage language;
 
     public static PalindromLanguage instance() {
@@ -12,18 +10,18 @@ public class PalindromLanguage {
         return language;
     }
 
-    public void check(String text) {
+    public boolean check(String text) {
         String s, data;
         s = text.toLowerCase().replaceAll("\\W", "");
 
-        StringBuffer buffer = new StringBuffer(s);
-        buffer.reverse();
-        data = buffer.toString();
+        StringBuilder builder = new StringBuilder(s);
+        builder.reverse();
+        data = builder.toString();
 
-        if (s.equals(data)) {
-            System.out.println(text + " is palindrom");
-        }else {
-            System.out.println(text + " not palindrom");
-        }
+        return (s.equals(data));
+    }
+
+    public String get(String s) {
+        return (this.check(s)) ? s + ": is Palindrom? " + this.check(s) : s + ": is Palindrom? " + this.check(s);
     }
 }
