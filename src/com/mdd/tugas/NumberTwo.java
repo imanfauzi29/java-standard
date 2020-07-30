@@ -3,21 +3,27 @@ package com.mdd.tugas;
 import com.mdd.tugas.classes.NumberTwoLanguage;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Scanner;
 
 public class NumberTwo {
 
     public static void main(String[] args) {
-        countWord();
+        count();
     }
 
-    private void countWord() {
-
-
-        var count = NumberTwoLanguage.instance();
-        count.counts();
+    private static void count() {
+        List<String> words = List.of("Aku", "ingin", "la...");
+        words.stream().map(NumberTwo::get).forEach(System.out::println);
     }
 
-    private String word() {
+    public static String get(String s) {
+        var countWord = NumberTwoLanguage.instance();
+        return countWord.count(s, songs());
+    }
+
+
+    private static String songs() {
         var lyric = "Aku ingin begini\n" +
                 "Aku ingin begitu\n" +
                 "Ingin ini itu banyak sekali\n\n" +

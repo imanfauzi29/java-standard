@@ -3,8 +3,6 @@ package com.mdd.tugas;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,9 +28,10 @@ public class NumberFive {
 
     public static void makeJSON(String s) {
         try {
-            FileOutputStream out = new FileOutputStream("src/com/mdd/tugas/result.json");
+            var file = "src/com/mdd/tugas/result.json";
+            FileOutputStream out = new FileOutputStream(file);
             out.write(s.getBytes());
-
+            System.out.println("success saved in " + file);
 
         }catch (Exception e) {
             e.getMessage();
